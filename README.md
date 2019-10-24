@@ -13,6 +13,8 @@
 
 In this assessment, your task will be to build a BlackJack command-line app. The MVP (minimal viable product, basic requirements) of this project will be a one-player game against the computer. 
 
+You are free to use Google, StackOverflow, your notes in working through this assessment. Best of luck, address each problem as a sub-task and keep chipping away. You all got this! 
+
 #### Project Overview
 
 #### Card.swift
