@@ -9,17 +9,10 @@
 import Foundation
 print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 
-
-// 1
 let game = Game(player: Player(score: 0, playerName: "Player"))
-
-// 2
 game.newGame()
-
-// 3
 var gameOver = true
 
-// 4
 repeat {
     print("Type <<hit>> to get your first card")
     let hitOrPass = readLine()?.lowercased() ?? ""
@@ -28,8 +21,19 @@ repeat {
     } else if hitOrPass == "pass" {
         game.stopHits(hitPlayers: false)
         let winStatus = game.computerVsPlayer(randomScore: 0)
+        // game.gameStatus()
         print(winStatus)
     }
+    
+    
+   
+//    print("Would you like to play again?")
+//    let answer = readLine()?.lowercased() ?? ""
+//    if answer == "yes" {
+//        game.newGame()
+//    } else {
+//        gameOver = true
+//    }
 } while gameOver
 
 

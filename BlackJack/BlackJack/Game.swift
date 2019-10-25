@@ -20,8 +20,7 @@ class Game {
     var hasMoreCards: Bool {
         return !deck.isEmpty
     }
-    var randomComputerScore = Int.random(in: 2...30)
-    //var randomComputerScore = SystemRandomNumberGenerator()
+    var randomComputerScore = Int.random(in: 15...30)
     
     func newGame() {
         player.score = 0
@@ -31,7 +30,11 @@ class Game {
     func stopHits(hitPlayers: Bool) -> Int {
         if hitPlayers == false {
             print(randomComputerScore)
-            game.computerVsPlayer(randomScore: 0)
+           if randomComputerScore > player.score && randomComputerScore < 22 {
+                     print("You lose!😔")
+                 } else {
+                     print("You Win!!")
+                 }
         }
         return randomComputerScore
     }
@@ -50,30 +53,24 @@ class Game {
     }
     
     func computerVsPlayer(randomScore: Int?) -> String {
-        var randomScore = randomComputerScore
-        
         if randomComputerScore > player.score && randomComputerScore < 22 {
-            return "You lose! Would you like to play again?"
+            return "Would you like to play again?"
         } else {
-            return "You Win!!"
+            return "Congratulations🥳"
         }
     }
     
-    //    gameStatus() takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
-    func gameStatus(card: Card, score: Player) -> Int {
-                var newScore = score.score + card.value
-       // var status: String
-        switch newScore {
+    func gameStatus() {
+        switch player.score {
         case (21):
-            print("BlackJack")
+            print("🃏BlackJack🃏")
         case (22...30):
-            print("Bust")
+            print("Bust⚰️💀")
         default:
-            print("Continue")
+            print("Continue😉🧐")
              game.hitMe()
         }
-        return newScore
+      
     }
-    
     
 }
