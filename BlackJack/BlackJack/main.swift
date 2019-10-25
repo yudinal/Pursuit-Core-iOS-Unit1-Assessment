@@ -10,42 +10,26 @@ import Foundation
 print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 
 
+// 1
 let game = Game(player: Player(score: 0, playerName: "Player"))
-//game.newGame()
-var gameOver = true
-var score = 0
-repeat {
-    let hitOrPass = readLine() ?? ""
 
+// 2
+game.newGame()
+
+// 3
+var gameOver = true
+
+// 4
+repeat {
+    print("Type <<hit>> to get your first card")
+    let hitOrPass = readLine()?.lowercased() ?? ""
     if hitOrPass == "hit" {
         let _ = game.hitMe()
-        //score += card?.value ?? 0
-        //print(score)
-        
     } else if hitOrPass == "pass" {
         game.stopHits(hitPlayers: false)
         let winStatus = game.computerVsPlayer(randomScore: 0)
-        
         print(winStatus)
-        //print("pass")
-        //print(Card.value)
     }
-    
-//    repeat {
-//        guard let decision = game.hitMe() else {
-//            game.stopHits(hitPlayers: false)
-//            break
-//        }
-//    } while game.hasMoreCards
-//    game.gameStatus(card: Card(suit: Suit(rawValue: "♥️") ?? Suit(rawValue: "♠️")!, value: 3, isFaceCard: true, face: FaceCard(rawValue: "🙂")), score: Player(score: 0, playerName: "Player"))
-//    game.newGame()
-//    print("Would you like to continue playing another round?")
-//     if continuePlaying == "yes" {
-//         game.newGame()
-//         gameOver = true
-//     } else {
-//         gameOver = false
-//     }
 } while gameOver
 
 
